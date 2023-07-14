@@ -31,6 +31,9 @@ export const UpdateProfessorData = () => {
   );
 
   useEffect(() => {
+    if (!selectedProfessor) {
+      return;
+    }
     if (allProfsData.length > 0 && selectedProfessor) {
       const professor = allProfsData.find(
         (prof) => prof.nome_professor === selectedProfessor
@@ -52,6 +55,9 @@ export const UpdateProfessorData = () => {
   }, [setValue, allProfsData, selectedProfessor]);
 
   const onSubmit = async (formData: any) => {
+    if (!selectedProfessor) {
+      return;
+    }
     try {
       const professor = allProfsData.find(
         (prof) => prof.nome_professor === selectedProfessor
@@ -104,9 +110,14 @@ export const UpdateProfessorData = () => {
         />
         <form onSubmit={handleSubmit(onSubmit)}>
           <Select
-            value={selectedProfessor}
-            onChange={(event) => setSelectedProfessor(event.target.value)}
+            value={selectedProfessor ? selectedProfessor : ""}
+            onChange={(event) =>
+              setSelectedProfessor(event.target.value as string)
+            }
           >
+            <MenuItem value="">
+              <em>-</em>
+            </MenuItem>
             {allProfsData.map((professor, index) => (
               <MenuItem key={index} value={professor.nome_professor}>
                 {professor.nome_professor}
@@ -163,8 +174,10 @@ export const UpdateProfessorData = () => {
             sx={{ marginTop: "6px" }}
             type="submit"
             color="primary"
+            disabled={!selectedProfessor} // se selectedProfessor for null ou vazio, desabilita o botão
+           
           >
-            Atualizar Dados
+            {!selectedProfessor?"selecione um professor!.":"Atulizar dados"}
           </Button>
         </form>
       </Box>

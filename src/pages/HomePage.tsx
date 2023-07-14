@@ -16,7 +16,7 @@ export const HomePage = () => {
   };
 
   const handleLivro3Click = () => {
-    history("/");
+    history("/UpdateProfessorData");
   };
 
   return (
@@ -27,15 +27,17 @@ export const HomePage = () => {
           <h1>Cadastro de Professores</h1>
         </div>
 
-        <div onClick={handleLivro2Click}>
+        <div onClick={handleLivro3Click}>
           <img src={livro2} alt="" />
-          <h1>Lista de Profs e atestados</h1>
+          <h1>Atualizar Professores</h1>
         </div>
 
-        <div onClick={handleLivro3Click}>
+        <div onClick={handleLivro2Click}>
           <img src={livro3} alt="" />
-          <h1>Home Page</h1>
+          <h1>Gerar Atestado de Regência</h1>
         </div>
+
+       
       </div>
     </div>
   );

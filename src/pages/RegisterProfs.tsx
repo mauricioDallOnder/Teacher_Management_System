@@ -22,7 +22,7 @@ import { ref, set } from "firebase/database";
 import { db } from "../api/config";
 
 export const RegisterProfs = () => {
-  const { register, handleSubmit, getValues, reset } = useForm<InputsProps>({});
+  const { register, handleSubmit, getValues, reset,formState } = useForm<InputsProps>({});
   const { dynamicFieldGroups, setDynamicFieldGroups } = useFormDataContext();
 
   const onSubmit: SubmitHandler<InputsProps> = async (data) => {
@@ -52,6 +52,7 @@ export const RegisterProfs = () => {
         reset();
         // Finally, clear dynamic field groups
         setDynamicFieldGroups([]);
+        alert('Professor cadastrado com sucesso')
       })
       .catch((error: any) => {
         console.error("Data could not be saved.", error);
@@ -126,9 +127,17 @@ export const RegisterProfs = () => {
               </Button>
             </List>
           </Box>
-          <Button variant="contained" type="submit" color="primary">
-            Cadastrar Professor
-          </Button>   
+          <Box mt={2} mb={6} textAlign="center" width='100%' >
+          <Button 
+            sx={{fontSize: '1.1rem', width: ['100%', '400px']}} // Isso tornará o botão responsivo
+            variant="contained" 
+            color="primary" 
+            type="submit"
+            disabled={formState.isSubmitting}
+          >
+            {formState.isSubmitting ? "Cadastrando..." : "Cadastrar professor"}
+          </Button>
+        </Box>  
         </Box>
       </form>
     </Container>

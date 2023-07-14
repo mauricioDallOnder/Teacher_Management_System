@@ -6,7 +6,7 @@ import { storage } from "../../api/config";
 import getMonthName from "../../utils/constants";
 import { InputsProps } from "../../interfaces/interfaces";
 let url =
-  "https://firebasestorage.googleapis.com/v0/b/profs-database.appspot.com/o/template.docx?alt=media&token=6c032ea8-b733-4751-a68a-3a65bc2172aa";
+  "https://firebasestorage.googleapis.com/v0/b/profs-database.appspot.com/o/template.docx?alt=media&token=0da6f5c9-f9a2-4864-826a-1aaab1634b61";
 export const CreateDocx = async (professor: InputsProps) => {
   const pathReference = ref(storage, url);
 
