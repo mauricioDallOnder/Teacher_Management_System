@@ -15,7 +15,7 @@ import { CreateDocx } from "./generatePdf";
 import { StyledTableCell, StyledTableRow } from "./ProfsDataStyle";
 import { InputsProps } from "../../interfaces/interfaces";
 export const GetProfsData = () => {
-  const { formdata } = useFormDataContext();
+  const { allProfsData } = useFormDataContext();
   const [inputValue, setInputValue] = useState("");
   const [filteredData, setFilteredData] = useState<InputsProps[]>([]);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +23,7 @@ export const GetProfsData = () => {
   };
 
   useEffect(() => {
-    const filtered = formdata.filter(
+    const filtered = allProfsData.filter(
       (prof) =>
         prof.nome_professor &&
         prof.nome_professor.toLowerCase().includes(inputValue.toLowerCase())

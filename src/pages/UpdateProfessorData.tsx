@@ -24,15 +24,15 @@ import { db } from "../api/config";
 import { FormHeader } from "../components/formHeader";
 
 export const UpdateProfessorData = () => {
-  const { formdata } = useFormDataContext();
+  const { allProfsData } = useFormDataContext();
   const { register, setValue, handleSubmit } = useForm();
   const [selectedProfessor, setSelectedProfessor] = useState<string | null>(
     null
   );
 
   useEffect(() => {
-    if (formdata.length > 0 && selectedProfessor) {
-      const professor = formdata.find(
+    if (allProfsData.length > 0 && selectedProfessor) {
+      const professor = allProfsData.find(
         (prof) => prof.nome_professor === selectedProfessor
       );
       setValue("nome_professor", professor?.nome_professor);
@@ -49,11 +49,11 @@ export const UpdateProfessorData = () => {
         }
       }
     }
-  }, [setValue, formdata, selectedProfessor]);
+  }, [setValue, allProfsData, selectedProfessor]);
 
   const onSubmit = async (formData: any) => {
     try {
-      const professor = formdata.find(
+      const professor = allProfsData.find(
         (prof) => prof.nome_professor === selectedProfessor
       );
 
@@ -107,7 +107,7 @@ export const UpdateProfessorData = () => {
             value={selectedProfessor}
             onChange={(event) => setSelectedProfessor(event.target.value)}
           >
-            {formdata.map((professor, index) => (
+            {allProfsData.map((professor, index) => (
               <MenuItem key={index} value={professor.nome_professor}>
                 {professor.nome_professor}
               </MenuItem>
@@ -140,7 +140,7 @@ export const UpdateProfessorData = () => {
               Seção 2 - Informações Documentais:
             </Typography>
             {selectedProfessor &&
-              formdata
+              allProfsData
                 .find((prof) => prof.nome_professor === selectedProfessor)
                 ?.records.map((_record, professorIndex) => (
                   <Grid container spacing={2} key={professorIndex}>
