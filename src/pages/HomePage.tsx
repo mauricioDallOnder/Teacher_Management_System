@@ -25,7 +25,7 @@ export const HomePage = () => {
         gap={10}
       >
         {[ 
-          { src: livro1, text: 'Cadastro de Professores', path: '/RegisterProfs' },
+          { src: livro1, text: 'Cadastrar Professores', path: '/RegisterProfs' },
           { src: livro2, text: 'Atualizar Professores', path: '/UpdateProfessorData' },
           { src: livro3, text: 'Gerar Atestado de Regência', path: '/ProfsListWithPDF' },
         ].map((item, index) => (

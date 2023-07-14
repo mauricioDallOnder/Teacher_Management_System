@@ -17,14 +17,15 @@ function MyAppBar() {
     <AppBar position="fixed"  style={{ top: 0, height: '64px', zIndex: 1,background: "#202932" }}>
     <Toolbar sx={toolbarStyles}>
       <NavLink style={linkStyles} to="/registerProfs">
-        Cadastrar Professor
-      </NavLink>
-      <NavLink style={linkStyles} to="/profsListWithPDF">
-        Pesquisar Professor e gerar atestado
+        Cadastrar Professores
       </NavLink>
       <NavLink style={linkStyles} to="/UpdateProfessorData">
-        Update Professores
+          Atualizar Professores
       </NavLink>
+      <NavLink style={linkStyles} to="/profsListWithPDF">
+          Gerar Atestado de Regência
+      </NavLink>
+      
      
     </Toolbar>
   </AppBar>

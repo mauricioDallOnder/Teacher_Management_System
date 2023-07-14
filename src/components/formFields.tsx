@@ -18,6 +18,10 @@ export const FormField: React.FC<FormFieldProps> = ({
           variant="standard"
           sx={{ borderRadius: "4px" }}
           required
+          inputProps={{
+            pattern: "\\d{2}/\\d{2}/\\d{4}",
+            title: "A data deve estar no formato DD/MM/YYYY",
+          }}
           {...register(id as keyof InputsProps)} // assert type here
         />
       </>

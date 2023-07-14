@@ -107,7 +107,7 @@ export const UpdateProfessorData = () => {
     <Container>
       <Box sx={BoxStyleCadastro}>
         <FormHeader
-          title={"Formulário de Cadastro"}
+          title={"Formulário de Atualização"}
           subtitle={"EMEF SANTA CORONA"}
         />
         <form onSubmit={handleSubmit(onSubmit)}>
