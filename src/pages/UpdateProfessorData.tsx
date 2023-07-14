@@ -25,7 +25,7 @@ import { FormHeader } from "../components/formHeader";
 
 export const UpdateProfessorData = () => {
   const { allProfsData } = useFormDataContext();
-  const { register, setValue, handleSubmit } = useForm();
+  const { register, setValue, handleSubmit,reset } = useForm();
   const [selectedProfessor, setSelectedProfessor] = useState<string | null>(
     null
   );
@@ -91,6 +91,8 @@ export const UpdateProfessorData = () => {
       update(ref(db, "professors/" + professor?.id), updatedData)
         .then(() => {
           console.log("Data saved successfully.");
+          reset();
+          alert('Dados atualizados com sucesso!')
         })
         .catch((error) => {
           console.error("Data could not be saved.", error);

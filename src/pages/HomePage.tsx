@@ -1,44 +1,53 @@
+import { Box, Typography,CardMedia, CardContent, ButtonBase } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import livro1 from "../assets/livro1.png";
 import livro2 from "../assets/livro2.png";
 import livro3 from "../assets/livro3.png";
-import { useNavigate } from 'react-router-dom';
-import "../styles/homepage.css";
+
 
 export const HomePage = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
 
-  const handleLivro1Click = () => {
-    history("/RegisterProfs");
-  };
-
-  const handleLivro2Click = () => {
-    history("/ProfsListWithPDF");
-  };
-
-  const handleLivro3Click = () => {
-    history("/UpdateProfessorData");
+  const handleLivroClick = (path: string) => {
+    navigate(path);
   };
 
   return (
-    <div className="container">
-      <div className="item">
-        <div onClick={handleLivro1Click}>
-          <img src={livro1} alt="" />
-          <h1>Cadastro de Professores</h1>
-        </div>
-
-        <div onClick={handleLivro3Click}>
-          <img src={livro2} alt="" />
-          <h1>Atualizar Professores</h1>
-        </div>
-
-        <div onClick={handleLivro2Click}>
-          <img src={livro3} alt="" />
-          <h1>Gerar Atestado de Regência</h1>
-        </div>
-
-       
-      </div>
-    </div>
+    <Box 
+      display="flex" 
+      justifyContent="space-around" 
+      mt={10}
+    >
+      <Box 
+        display="flex" 
+        justifyContent="space-between" 
+        alignItems="baseline"
+        gap={10}
+      >
+        {[ 
+          { src: livro1, text: 'Cadastro de Professores', path: '/RegisterProfs' },
+          { src: livro2, text: 'Atualizar Professores', path: '/UpdateProfessorData' },
+          { src: livro3, text: 'Gerar Atestado de Regência', path: '/ProfsListWithPDF' },
+        ].map((item, index) => (
+          <ButtonBase 
+            key={index} 
+            onClick={() => handleLivroClick(item.path)}
+          >
+            <Box sx={{maxWidth:200,backgroundColor:'linear-gradient(45deg,#4158d0,#c850c0);'}}>
+              <CardMedia 
+                component="img"
+                image={item.src}
+                alt={item.text}
+              />
+              <CardContent>
+                <Typography variant="h6">
+                  {item.text}
+                </Typography>
+              </CardContent>
+            </Box>
+          </ButtonBase>
+        ))}
+      </Box>
+    </Box>
   );
 };

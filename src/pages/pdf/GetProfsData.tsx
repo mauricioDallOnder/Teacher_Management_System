@@ -11,7 +11,7 @@ import {
   Typography,
   Table,
 } from "@mui/material";
-import { CreateDocx } from "./generatePdf";
+import { CreateDocx } from "./generateDoc";
 import { StyledTableCell, StyledTableRow } from "./ProfsDataStyle";
 import { InputsProps } from "../../interfaces/interfaces";
 export const GetProfsData = () => {
