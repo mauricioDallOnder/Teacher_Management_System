@@ -5,8 +5,7 @@ import { getDownloadURL, ref } from "firebase/storage";
 import { storage } from "../../api/config";
 import getMonthName from "../../utils/constants";
 import { InputsProps } from "../../interfaces/interfaces";
-let url =
-  "https://firebasestorage.googleapis.com/v0/b/profs-database.appspot.com/o/template.docx?alt=media&token=0da6f5c9-f9a2-4864-826a-1aaab1634b61";
+const url ="https://firebasestorage.googleapis.com/v0/b/profs-database.appspot.com/o/template.docx?alt=media&token=ecc942e0-f76b-437e-8a56-3fb964c57b17";
 export const CreateDocx = async (professor: InputsProps) => {
   const pathReference = ref(storage, url);
 
@@ -24,8 +23,8 @@ export const CreateDocx = async (professor: InputsProps) => {
 
       const arrayBuffer = await response.arrayBuffer();
 
-      var zip = new PizZip(arrayBuffer);
-      var doc = new Docxtemplater().loadZip(zip);
+      const zip = new PizZip(arrayBuffer);
+      const doc = new Docxtemplater().loadZip(zip);
 
       const endDate =String(professor.fim)
       const today = new Date().toISOString().replace(/T.*/,'').split('-').reverse().join('/')
@@ -59,7 +58,7 @@ export const CreateDocx = async (professor: InputsProps) => {
         return;
       }
 
-      var buf = doc.getZip().generate({ type: "blob" });
+      const buf = doc.getZip().generate({ type: "blob" });
       saveAs(buf, `atestado-de-regencia-${professor.nome_professor}.docx`);
     })
     .catch((error) => {
