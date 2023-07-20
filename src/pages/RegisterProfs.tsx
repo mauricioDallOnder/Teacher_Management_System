@@ -13,7 +13,7 @@ import {
   BoxStyleCadastro,
   ListStyle,
   TituloSecaoStyle,
-} from "../utils/PagesStyles";
+} from "../styles/GlobalFormStyles";
 import { v4 as uuidv4 } from "uuid";
 import { FormHeader } from "../components/formHeader";
 import { FormField, DynamicFieldGroup } from "../components/formFields";

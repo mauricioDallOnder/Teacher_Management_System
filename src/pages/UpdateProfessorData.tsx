@@ -17,7 +17,7 @@ import {
   BoxStyleCadastro,
   ListStyle,
   TituloSecaoStyle,
-} from "../utils/PagesStyles";
+} from "../styles/GlobalFormStyles";
 import { fieldsSessao1, fieldsSessao2 } from "../utils/constants";
 import { ref, update } from "firebase/database";
 import { db } from "../api/config";

@@ -13,7 +13,7 @@ import {
   Table,
 } from "@mui/material";
 import { CreateDocx } from "./generateDoc";
-import { StyledTableCell, StyledTableRow } from "./ProfsDataStyle";
+import { StyledTableCell, StyledTableRow } from "../../styles/ProfsDataStyle";
 import { InputsProps } from "../../interfaces/interfaces";
 export const GetProfsData = () => {
   const { allProfsData } = useFormDataContext();

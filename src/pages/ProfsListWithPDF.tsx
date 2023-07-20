@@ -4,8 +4,8 @@ import {
   TituloDaPagina,
   SubtituloDaPagina,
   ListStyle,
-} from "../utils/PagesStyles";
-import { GetProfsData } from "./pdf/GetProfsData";
+} from "../styles/GlobalFormStyles";
+import { GetProfsData } from "../components/pdf/GetProfsData";
 
 export const ProfsListWithPDF = () => {
   return (

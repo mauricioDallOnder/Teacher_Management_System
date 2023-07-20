@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { TituloDaPagina, SubtituloDaPagina } from "../utils/PagesStyles";
+import { TituloDaPagina, SubtituloDaPagina } from "../styles/GlobalFormStyles";
 
 interface formheader {
   title: string;
