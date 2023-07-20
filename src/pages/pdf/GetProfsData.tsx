@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, ChangeEvent, useEffect } from "react";
 import { useFormDataContext } from "../../api/context";
 import {
@@ -29,7 +30,9 @@ export const GetProfsData = () => {
         prof.nome_professor.toLowerCase().includes(inputValue.toLowerCase())
     );
     setFilteredData(filtered);
-  }, []);
+    console.log(filteredData)
+  }, [inputValue, allProfsData]);
+
 
   return (
     <Container>

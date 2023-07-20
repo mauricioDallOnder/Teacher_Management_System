@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { SubmitHandler, useForm } from "react-hook-form";
 import {useFormDataContext } from "../api/context";
-import { fieldsSessao2, fieldsSessao1, handleFirebaseError } from "../utils/constants";
+import { fieldsSessao2, fieldsSessao1} from "../utils/constants";
 import {
   BoxStyleCadastro,
   ListStyle,
@@ -54,9 +54,9 @@ export const RegisterProfs = () => {
         setDynamicFieldGroups([]);
         alert('Professor cadastrado com sucesso')
       })
-      .catch((error: any) => {
+      .catch((error: string) => {
         console.error("Data could not be saved.", error);
-        handleFirebaseError(error);
+      
       });
      
   };

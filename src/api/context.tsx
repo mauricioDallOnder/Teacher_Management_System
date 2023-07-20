@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useState, createContext, useContext, ReactNode, useEffect } from "react";
 import { InputsProps } from "../interfaces/interfaces";
 import { ref, onValue } from "firebase/database";

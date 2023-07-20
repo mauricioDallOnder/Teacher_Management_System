@@ -179,7 +179,7 @@ export const UpdateProfessorData = () => {
             disabled={!selectedProfessor} // se selectedProfessor for null ou vazio, desabilita o botão
            
           >
-            {!selectedProfessor?"selecione um professor!.":"Atulizar dados"}
+            {!selectedProfessor?"selecione um professor!.":"Atualizar dados"}
           </Button>
         </form>
       </Box>

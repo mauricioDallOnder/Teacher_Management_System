@@ -51,21 +51,3 @@ export const schema = z.object({
     turmas:z.string(),
     ata:z.string()
 });
-
-export function handleFirebaseError(error:any) {
-  switch (error.code) {
-    case "PERMISSION_DENIED":
-      // O usuário não tem permissões para acessar os dados.
-      console.error("Você não tem permissões para acessar esses dados.");
-      break;
-    case "NETWORK_ERROR":
-      // Ocorreu um erro de rede.
-      console.error("Ocorreu um erro de rede. Verifique sua conexão com a Internet.");
-      break;
-    // Adicione mais casos conforme necessário.
-    default:
-      // Um erro desconhecido ocorreu.
-      console.error("Ocorreu um erro desconhecido.", error);
-      break;
-  }
-}
