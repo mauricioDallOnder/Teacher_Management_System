@@ -19,13 +19,13 @@ import {
   TituloSecaoStyle,
 } from "../styles/GlobalFormStyles";
 import { fieldsSessao1, fieldsSessao2 } from "../utils/constants";
-import { ref, update } from "firebase/database";
+import { ref, remove, update } from "firebase/database";
 import { db } from "../api/config";
 import { FormHeader } from "../components/formHeader";
 
 export const UpdateProfessorData = () => {
   const { allProfsData } = useFormDataContext();
-  const { register, setValue, handleSubmit,reset } = useForm();
+  const { register, setValue, handleSubmit, reset } = useForm();
   const [selectedProfessor, setSelectedProfessor] = useState<string | null>(
     null
   );
@@ -92,7 +92,7 @@ export const UpdateProfessorData = () => {
         .then(() => {
           console.log("Data saved successfully.");
           reset();
-          alert('Dados atualizados com sucesso!')
+          alert("Dados atualizados com sucesso!");
         })
         .catch((error) => {
           console.error("Data could not be saved.", error);
@@ -100,6 +100,23 @@ export const UpdateProfessorData = () => {
       console.log("Dados atualizados com sucesso");
     } catch (error) {
       console.error("Erro ao atualizar dados", error);
+    }
+  };
+
+  const onDeleteProfessor = async () => {
+    if (!selectedProfessor) {
+      return;
+    }
+    try {
+      const professor = allProfsData.find(
+        (prof) => prof.nome_professor === selectedProfessor
+      );
+      await remove(ref(db, "professors/" + professor?.id));
+      console.log("Professor deletado com sucesso");
+      setSelectedProfessor(null); // Resetando o professor selecionado
+      reset(); // Resetando o form
+    } catch (error) {
+      console.error("Erro ao deletar professor", error);
     }
   };
 
@@ -177,9 +194,19 @@ export const UpdateProfessorData = () => {
             type="submit"
             color="primary"
             disabled={!selectedProfessor} // se selectedProfessor for null ou vazio, desabilita o botão
-           
           >
-            {!selectedProfessor?"selecione um professor!.":"Atualizar dados"}
+            {!selectedProfessor
+              ? "selecione um professor."
+              : "Atualizar dados"}
+          </Button>
+          <Button
+            variant="contained"
+            sx={{ marginTop: "6px", marginRight: "10px" }}
+            color="error"
+            disabled={!selectedProfessor} // se selectedProfessor for null ou vazio, desabilita o botão
+            onClick={onDeleteProfessor}
+          >
+            Deletar Professor
           </Button>
         </form>
       </Box>
