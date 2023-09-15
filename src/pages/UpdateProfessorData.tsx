@@ -22,6 +22,7 @@ import { fieldsSessao1, fieldsSessao2 } from "../utils/constants";
 import { ref, remove, update } from "firebase/database";
 import { db } from "../api/config";
 import { FormHeader } from "../components/formHeader";
+import { InputsProps } from "../interfaces/interfaces";
 interface Record {
   ata: string;
   funcao: string;
@@ -36,6 +37,12 @@ export const UpdateProfessorData = () => {
     null
   );
   const [currentRecords, setCurrentRecords] = useState<Record[]>([]);
+  const [sortedProfsData, setSortedProfsData] = useState<InputsProps[]>([]);
+  useEffect(() => {
+    const sortedData = [...allProfsData].sort((a, b) => a.nome_professor.localeCompare(b.nome_professor));
+    setSortedProfsData(sortedData);
+  }, [allProfsData]);
+
 
   useEffect(() => {
     if (!selectedProfessor) {
@@ -183,12 +190,13 @@ export const UpdateProfessorData = () => {
             <MenuItem value="">
               <em>-</em>
             </MenuItem>
-            {allProfsData.sort((a, b) => a.nome_professor.localeCompare(b.nome_professor)).map((professor, index) => (
+            {sortedProfsData.map((professor, index) => (
               <MenuItem key={index} value={professor.nome_professor}>
                 {professor.nome_professor}
               </MenuItem>
             ))}
           </Select>
+
 
           <List sx={ListStyle}>
             <Typography sx={TituloSecaoStyle}>
