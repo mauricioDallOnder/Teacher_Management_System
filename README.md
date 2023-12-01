@@ -15,6 +15,15 @@ This project was built using the following technologies:
 - **Material UI** for user interface design.
 - **Firebase** for server-side rendering and performance optimization.
 
+## Layout
+
+<div align="left">
+    <img src="https://firebasestorage.googleapis.com/v0/b/profs-database.appspot.com/o/Sem%20t%C3%ADtulo.png?alt=media&token=fba3a898-fc7c-444d-a8bb-1a5dded5b2d0" width="500" />
+ 
+  <img src="https://firebasestorage.googleapis.com/v0/b/profs-database.appspot.com/o/Captura%20de%20tela%202023-12-01%20155358.png?alt=media&token=4af1dd9a-cf8a-41bd-a584-6a1d423a15cf" width="500" /> 
+  <br/>
+  <img src="https://firebasestorage.googleapis.com/v0/b/profs-database.appspot.com/o/Captura%20de%20tela%202023-12-01%20155259.png?alt=media&token=97b417ad-c715-4de2-9910-cc7f5595e7d2" width="500" />
+
 
 ## Running Locally
 
